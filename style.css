@@ -1,4 +1,3 @@
-/* 전체 기본 설정 */
 * {
     margin: 0;
     padding: 0;
@@ -6,155 +5,132 @@
 }
 
 body {
+    background: white;
+    color: black;
+
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
 }
 
-/* 헤더 */
 header {
+    width: 100%;
     text-align: center;
+
+    border-bottom: 1px solid #d3d6da;
+
+    padding: 20px 0;
     margin-bottom: 30px;
-    border-bottom: 2px solid #000;
-    padding-bottom: 20px;
 }
 
 h1 {
-    font-size: 48px;
-    font-weight: bold;
+    letter-spacing: 4px;
 }
 
-/* 메인 컨테이너 */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* 게임 보드 */
-.board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-}
-
-/* 타일 */
-.tile {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 24px;
-    font-weight: bold;
-    background-color: #fff;
 }
 
-/* 타일 상태 */
-.tile.correct {
-    background-color: #6aaa64; /* 초록색 */
-    color: white;
-    border-color: #6aaa64;
-}
-
-.tile.present {
-    background-color: #c8b458; /* 노란색 */
-    color: white;
-    border-color: #c8b458;
-}
-
-.tile.absent {
-    background-color: #d3d6da; /* 회색 */
-    color: white;
-    border-color: #d3d6da;
-}
-
-/* 입력 영역 */
-.input-area {
+/* 보드 */
+.board {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 30px;
 }
 
-.guess-input {
-    width: 200px;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
+.board-row {
+    display: flex;
+    gap: 8px;
+}
+
+.tile {
+    width: 62px;
+    height: 62px;
+
+    border: 2px solid #d3d6da;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 32px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
-.guess-input:focus {
-    outline: none;
-    border-color: #000;
-}
-
-/* 버튼 */
-.submit-btn {
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #000;
+.correct {
+    background-color: #6aaa64;
+    border-color: #6aaa64;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.submit-btn:hover {
-    background-color: #333;
+.present {
+    background-color: #c9b458;
+    border-color: #c9b458;
+    color: white;
 }
 
-.reset-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #ccc;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.reset-btn:hover {
-    background-color: #999;
+.absent {
+    background-color: #787c7e;
+    border-color: #787c7e;
+    color: white;
 }
 
 /* 메시지 */
-.message {
-    text-align: center;
-    font-size: 16px;
-    color: #e74c3c;
-    min-height: 20px;
+#message {
+    height: 24px;
+    margin-bottom: 20px;
+
+    color: red;
+}
+
+/* 키보드 */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
     margin-bottom: 20px;
 }
 
-.message.success {
-    color: #27ae60;
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
 }
 
-/* 반응형 (모바일) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 36px;
-    }
+.key {
+    min-width: 40px;
+    height: 58px;
 
-    .tile {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
+    border: none;
+    border-radius: 4px;
 
-    .guess-input {
-        width: 150px;
-    }
+    background-color: #d3d6da;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.large-key {
+    min-width: 70px;
+}
+
+/* 버튼 */
+#reset-btn {
+    padding: 10px 20px;
+
+    border: none;
+    background: black;
+    color: white;
+
+    cursor: pointer;
 }
